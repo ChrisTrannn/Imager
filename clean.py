@@ -10,6 +10,8 @@ def delete_files_starting_with_image():
             if os.path.isfile(file_path):
                 os.remove(file_path)
                 print(f"Deleted file: {file_path}")
+                
+    print("Finished deleting images and videos")
 
 # Call the function
 delete_files_starting_with_image()
