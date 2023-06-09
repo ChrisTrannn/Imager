@@ -25,7 +25,7 @@ async def on_ready():
     image_urls = []
     async for message in channel.history(limit=None):
         for attachment in message.attachments:
-            if attachment.url.lower().endswith((".jpg", ".jpeg", ".png", ".gif", ".mov")):
+            if attachment.url.lower().endswith((".jpg", ".jpeg", ".png", ".gif", ".mov", ".mp4")):
                 image_urls.append(attachment.url)
 
     # Print and download the collected image URLs
@@ -34,7 +34,7 @@ async def on_ready():
         print(url)
         
         img_data = requests.get(url).content
-        if url.endswith('.mov'):
+        if url.endswith('.mov') or url.endswith('.mp4'):
             with open(f'video{idxVid}.mov', 'wb') as handler:
                 handler.write(img_data)
                 idxVid += 1
